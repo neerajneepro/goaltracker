@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress — Neepro 90-Day Transformation</title>
+    <meta name="description"
+        content="Track your 90-day transformation progress — visualise goals, log daily wins, and stay accountable." />
+    <link rel="stylesheet" href="progress.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="dashboard.html" class="nav-logo">⚡ Neepro</a>
+            <button class="nav-toggle" id="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="progress.html" class="nav-link active">Progress</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-eyebrow">90-Day Transformation</div>
+        <h1>Progress Tracker</h1>
+        <p>Visualise your journey — every step counts</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- OVERALL PROGRESS RING -->
+        <div class="section-label">Overall Progress</div>
+        <div class="overall-row">
+            <div class="ring-card" id="overall-ring-card">
+                <svg class="progress-ring" viewBox="0 0 140 140">
+                    <circle class="ring-bg" cx="70" cy="70" r="60" />
+                    <circle class="ring-fill" id="ring-overall" cx="70" cy="70" r="60" stroke-dasharray="376.99"
+                        stroke-dashoffset="376.99" />
+                </svg>
+                <div class="ring-label">
+                    <span class="ring-pct" id="overall-pct">0%</span>
+                    <span class="ring-sub">complete</span>
+                </div>
+            </div>
+            <div class="overall-stats">
+                <div class="stat-pill">
+                    <span class="stat-icon">📅</span>
+                    <div>
+                        <div class="stat-value" id="stat-days-elapsed">0</div>
+                        <div class="stat-label">Days In</div>
+                    </div>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-icon">✅</span>
+                    <div>
+                        <div class="stat-value" id="stat-tasks-done">0</div>
+                        <div class="stat-label">Tasks Done</div>
+                    </div>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-icon">🎯</span>
+                    <div>
+                        <div class="stat-value" id="stat-tasks-total">15</div>
+                        <div class="stat-label">Total Tasks</div>
+                    </div>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-icon">🔥</span>
+                    <div>
+                        <div class="stat-value" id="stat-streak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GOAL BREAKDOWN -->
+        <div class="section-label">Goal Breakdown</div>
+        <div class="goal-breakdown">
+
+            <!-- Career -->
+            <div class="goal-row" id="goal-career-row" onclick="showGoalOverview('career')">
+                <div class="goal-color-bar" style="background:#f59e0b"></div>
+                <div class="goal-info">
+                    <div class="goal-name">🏦 AML Job Switch</div>
+                    <div class="goal-timeline-badge" style="color:#f59e0b">90 days</div>
+                </div>
+                <div class="goal-mini-ring">
+                    <svg viewBox="0 0 40 40">
+                        <circle class="mini-ring-bg" cx="20" cy="20" r="16" />
+                        <circle class="mini-ring-fill" id="mini-ring-career" cx="20" cy="20" r="16" stroke="#f59e0b"
+                            stroke-dasharray="100.53" stroke-dashoffset="100.53" />
+                    </svg>
+                    <span class="mini-pct" id="mini-pct-career">0%</span>
+                </div>
+                <span class="goal-chevron">➜</span>
+            </div>
+
+            <!-- YouTube -->
+            <div class="goal-row" id="goal-youtube-row" onclick="showGoalOverview('youtube')">
+                <div class="goal-color-bar" style="background:#ef4444"></div>
+                <div class="goal-info">
+                    <div class="goal-name">🎥 YouTube Channel</div>
+                    <div class="goal-timeline-badge" style="color:#ef4444">180 days</div>
+                </div>
+                <div class="goal-mini-ring">
+                    <svg viewBox="0 0 40 40">
+                        <circle class="mini-ring-bg" cx="20" cy="20" r="16" />
+                        <circle class="mini-ring-fill" id="mini-ring-youtube" cx="20" cy="20" r="16" stroke="#ef4444"
+                            stroke-dasharray="100.53" stroke-dashoffset="100.53" />
+                    </svg>
+                    <span class="mini-pct" id="mini-pct-youtube">0%</span>
+                </div>
+                <span class="goal-chevron">➜</span>
+            </div>
+
+            <!-- Communication -->
+            <div class="goal-row" id="goal-communication-row" onclick="showGoalOverview('communication')">
+                <div class="goal-color-bar" style="background:#8b5cf6"></div>
+                <div class="goal-info">
+                    <div class="goal-name">🎤 Communication & Appearance</div>
+                    <div class="goal-timeline-badge" style="color:#8b5cf6">ongoing</div>
+                </div>
+                <div class="goal-mini-ring">
+                    <svg viewBox="0 0 40 40">
+                        <circle class="mini-ring-bg" cx="20" cy="20" r="16" />
+                        <circle class="mini-ring-fill" id="mini-ring-communication" cx="20" cy="20" r="16"
+                            stroke="#8b5cf6" stroke-dasharray="100.53" stroke-dashoffset="100.53" />
+                    </svg>
+                    <span class="mini-pct" id="mini-pct-communication">0%</span>
+                </div>
+                <span class="goal-chevron">➜</span>
+            </div>
+        </div>
+
+        <!-- GOAL OVERVIEW PANEL (shown on click, filled by JS) -->
+        <div class="goal-overview-panel" id="goal-overview-panel">
+            <!-- dynamically rendered by showGoalOverview() -->
+        </div>
+
+        <!-- WEEKLY CHART -->
+        <div class="section-label">Weekly Activity</div>
+        <div class="chart-card" id="chart-card">
+            <div class="chart-header">
+                <span class="chart-title">Tasks Completed Per Week</span>
+                <span class="chart-legend">
+                    <span class="legend-dot" style="background:#f59e0b"></span> Career
+                    <span class="legend-dot" style="background:#ef4444"></span> YouTube
+                    <span class="legend-dot" style="background:#8b5cf6"></span> Communication
+                </span>
+            </div>
+            <div class="bar-chart" id="bar-chart">
+                <!-- rendered by JS -->
+            </div>
+            <div class="chart-x-axis" id="chart-x-axis">
+                <!-- rendered by JS -->
+            </div>
+        </div>
+
+        <!-- DAILY LOG -->
+        <div class="section-label">Daily Log</div>
+        <div class="log-card" id="log-card">
+            <div class="log-header">
+                <span class="log-date" id="log-date">Today</span>
+                <button class="log-add-btn" id="log-add-btn" onclick="openLogModal()">+ Add Entry</button>
+            </div>
+            <div class="log-entries" id="log-entries">
+                <div class="log-empty">No entries yet — start logging your wins!</div>
+            </div>
+        </div>
+
+        <!-- MILESTONES -->
+        <div class="section-label">Milestones</div>
+        <div class="milestones-track" id="milestones-track">
+            <div class="milestone" data-day="1">
+                <div class="milestone-dot" id="ms-dot-1"></div>
+                <div class="milestone-label">Day 1</div>
+                <div class="milestone-title">Journey Begins</div>
+            </div>
+            <div class="milestone-line"></div>
+            <div class="milestone" data-day="7">
+                <div class="milestone-dot" id="ms-dot-7"></div>
+                <div class="milestone-label">Day 7</div>
+                <div class="milestone-title">First Week Done</div>
+            </div>
+            <div class="milestone-line"></div>
+            <div class="milestone" data-day="30">
+                <div class="milestone-dot" id="ms-dot-30"></div>
+                <div class="milestone-label">Day 30</div>
+                <div class="milestone-title">Month 1 Complete</div>
+            </div>
+            <div class="milestone-line"></div>
+            <div class="milestone" data-day="60">
+                <div class="milestone-dot" id="ms-dot-60"></div>
+                <div class="milestone-label">Day 60</div>
+                <div class="milestone-title">Two-Thirds There</div>
+            </div>
+            <div class="milestone-line"></div>
+            <div class="milestone" data-day="90">
+                <div class="milestone-dot" id="ms-dot-90"></div>
+                <div class="milestone-label">Day 90</div>
+                <div class="milestone-title">🏆 Transformation</div>
+            </div>
+        </div>
+
+        <!-- INSIGHT -->
+        <div class="insight">
+            <strong>📊 Pro Tip: </strong>
+            Track progress weekly, not daily. Small daily changes are invisible — but compounding over weeks creates
+            undeniable momentum. <em>Log consistently.</em>
+        </div>
+
+    </div>
+
+    <!-- LOG MODAL -->
+    <div class="modal-overlay" id="log-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title">📝 Log Today's Progress</span>
+                <button class="modal-close" onclick="closeLogModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <label class="modal-label" for="log-goal-select">Goal</label>
+                <select class="modal-select" id="log-goal-select">
+                    <option value="career">🏦 AML Job Switch</option>
+                    <option value="youtube">🎥 YouTube Channel</option>
+                    <option value="communication">🎤 Communication & Appearance</option>
+                </select>
+                <label class="modal-label" for="log-note">What did you accomplish?</label>
+                <textarea class="modal-textarea" id="log-note" rows="3"
+                    placeholder="e.g. Studied 2 chapters of ACAMS material..."></textarea>
+                <label class="modal-label" for="log-hours">Hours spent</label>
+                <input class="modal-input" id="log-hours" type="number" min="0" max="24" step="0.5" placeholder="1.5" />
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" onclick="closeLogModal()">Cancel</button>
+                <button class="modal-submit" onclick="submitLog()">Save Entry</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="progress.js"></script>
+</body>
+
+</html>

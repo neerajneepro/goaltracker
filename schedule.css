@@ -1,0 +1,687 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1e3a5f;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px 32px;
+}
+
+.nav-logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f59e0b;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.nav-logo:hover {
+    color: #fbbf24;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 6px;
+}
+
+.nav-link {
+    display: block;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: monospace;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    font-weight: bold;
+}
+
+/* Hamburger toggle — hidden on desktop */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #94a3b8;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.nav-toggle:hover span {
+    background: #e2e8f0;
+}
+
+/* ── HEADER ── */
+.header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-bottom: 1px solid #1e3a5f;
+    padding: 36px 32px 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #f59e0b;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: monospace;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: normal;
+    color: #f8fafc;
+    line-height: 1.3;
+}
+
+.header p {
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-item span {
+    font-size: 11px;
+    color: #94a3b8;
+    font-family: monospace;
+}
+
+/* ── MAIN CONTENT ── */
+.content {
+    padding: 28px 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-family: monospace;
+    margin-bottom: 14px;
+}
+
+/* ── GOALS ── */
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.goal-card {
+    background: #0f172a;
+    border: 1px solid #1e3a5f;
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.goal-card.active {
+    background: #1e293b;
+    transform: translateY(-2px);
+}
+
+.goal-timeline {
+    font-size: 10px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.goal-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #f1f5f9;
+}
+
+.goal-toggle {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 4px;
+    font-family: monospace;
+}
+
+.goal-actions {
+    display: none;
+    margin-top: 12px;
+    list-style: none;
+}
+
+.goal-card.active .goal-actions {
+    display: block;
+}
+
+
+/* ── PER-TASK ITEM CONTROLS ── */
+.goal-actions li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    transition: background 0.15s;
+}
+
+.goal-actions li:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Checkbox + text label */
+.task-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.task-check input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #475569;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.task-check input[type="checkbox"]:hover {
+    border-color: #22c55e;
+}
+
+.task-check input[type="checkbox"]:checked {
+    background: #22c55e;
+    border-color: #22c55e;
+}
+
+.task-check input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    color: #0f172a;
+    font-weight: bold;
+}
+
+.task-text {
+    font-size: 12px;
+    color: #cbd5e1;
+    font-family: monospace;
+    line-height: 1.5;
+    transition: all 0.2s;
+}
+
+/* Completed task text */
+.task-text.done {
+    text-decoration: line-through;
+    text-decoration-color: #22c55e;
+    color: #64748b;
+    opacity: 0.7;
+}
+
+/* Edit button — visible on hover */
+.task-edit-btn {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 6px;
+    opacity: 0;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.goal-actions li:hover .task-edit-btn,
+.goal-actions li:hover .task-del-btn {
+    opacity: 1;
+}
+
+.task-edit-btn:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* Delete button */
+.task-del-btn {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 6px;
+    opacity: 0;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.task-del-btn:hover {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+
+/* Inline edit input */
+.task-edit-input {
+    flex: 1;
+    background: #0f172a;
+    border: 1px solid #38bdf8;
+    border-radius: 4px;
+    color: #e2e8f0;
+    font-size: 12px;
+    font-family: monospace;
+    padding: 4px 8px;
+    outline: none;
+}
+
+.task-edit-input:focus {
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+/* ── ADD TASK BUTTON ── */
+.add-task-btn {
+    display: none;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    background: transparent;
+    border: 1px dashed #334155;
+    border-radius: 6px;
+    color: #64748b;
+    font-size: 12px;
+    font-family: monospace;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.goal-card.active .add-task-btn {
+    display: block;
+}
+
+.add-task-btn:hover {
+    border-color: #94a3b8;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── TABS ── */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #1e293b;
+    border: 1px solid #1e3a5f;
+    border-radius: 8px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.tab-btn.active {
+    background: #1e3a5f;
+    border-color: #38bdf8;
+}
+
+.tab-label {
+    font-size: 13px;
+    color: #94a3b8;
+    font-weight: normal;
+}
+
+.tab-btn.active .tab-label {
+    color: #f1f5f9;
+    font-weight: bold;
+}
+
+.tab-sub {
+    font-size: 10px;
+    color: #475569;
+    font-family: monospace;
+    margin-top: 2px;
+}
+
+.tab-btn.active .tab-sub {
+    color: #38bdf8;
+}
+
+/* ── BANNER ── */
+.banner {
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+    display: none;
+}
+
+.banner.visible {
+    display: block;
+}
+
+.banner strong {
+    font-weight: bold;
+}
+
+.banner em {
+    color: #e2e8f0;
+    font-style: normal;
+}
+
+.banner-weekday {
+    background: #1e293b;
+    border: 1px solid rgba(56, 189, 248, 0.27);
+    border-left: 3px solid #38bdf8;
+}
+
+.banner-worksat {
+    background: #1e293b;
+    border: 1px solid rgba(245, 158, 11, 0.27);
+    border-left: 3px solid #f59e0b;
+}
+
+.banner-freeday {
+    background: #1e293b;
+    border: 1px solid rgba(34, 197, 94, 0.27);
+    border-left: 3px solid #22c55e;
+}
+
+.banner-weekday strong {
+    color: #38bdf8;
+}
+
+.banner-worksat strong {
+    color: #f59e0b;
+}
+
+.banner-freeday strong {
+    color: #22c55e;
+}
+
+/* ── SCHEDULE TABLE ── */
+.table-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-family: monospace;
+    margin-bottom: 14px;
+}
+
+.schedule-table {
+    background: #0f172a;
+    border: 1px solid #1e3a5f;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 160px 28px 1fr;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #1e293b;
+    transition: background 0.15s;
+    align-items: flex-start;
+}
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+
+.schedule-row:hover {
+    background: #1e293b;
+}
+
+.row-time {
+    font-family: monospace;
+    font-size: 12px;
+    color: #64748b;
+    padding-top: 2px;
+    white-space: nowrap;
+}
+
+.row-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.row-task-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.row-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.row-task {
+    font-size: 14px;
+    color: #f1f5f9;
+}
+
+.row-task.goal-task {
+    font-weight: 600;
+}
+
+.row-tip {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #64748b;
+    font-family: monospace;
+    line-height: 1.6;
+    padding-left: 14px;
+}
+
+/* ── STATS ── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.stat-card {
+    background: #1e293b;
+    border: 1px solid #1e3a5f;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.stat-time {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #f1f5f9;
+    margin-top: 4px;
+}
+
+.stat-sub {
+    font-size: 11px;
+    color: #475569;
+    margin-top: 2px;
+    font-family: monospace;
+}
+
+/* ── INSIGHT BOX ── */
+.insight {
+    margin-top: 20px;
+    background: #1e293b;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+.insight strong {
+    color: #f59e0b;
+}
+
+.insight em {
+    color: #e2e8f0;
+    font-style: normal;
+}
+
+@media (max-width: 640px) {
+
+    /* Navbar mobile */
+    .nav-inner {
+        padding: 10px 16px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid #1e3a5f;
+        padding: 8px 16px 16px;
+        gap: 2px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    /* Existing responsive rules */
+    .content {
+        padding: 18px 16px;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .schedule-row {
+        grid-template-columns: 130px 24px 1fr;
+        gap: 8px;
+        padding: 12px 12px;
+    }
+
+    .header {
+        padding: 24px 16px 20px;
+    }
+}

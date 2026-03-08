@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources — Neepro 90-Day Transformation</title>
+    <meta name="description"
+        content="Curated study materials, tools, and guides for your 90-day transformation — AML career, YouTube growth, and personal development." />
+    <link rel="stylesheet" href="resources.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="dashboard.html" class="nav-logo">⚡ Neepro</a>
+            <button class="nav-toggle" id="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="progress.html" class="nav-link">Progress</a></li>
+                <li><a href="resources.html" class="nav-link active">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-eyebrow">90-Day Transformation</div>
+        <h1>Resources</h1>
+        <p>Everything you need — study materials, tools, and inspiration</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- FILTER TABS -->
+        <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn active" data-filter="all" onclick="filterResources('all')">
+                <span class="filter-icon">🌐</span> All
+            </button>
+            <button class="filter-btn" data-filter="career" onclick="filterResources('career')">
+                <span class="filter-icon">🏦</span> AML Career
+            </button>
+            <button class="filter-btn" data-filter="youtube" onclick="filterResources('youtube')">
+                <span class="filter-icon">🎥</span> YouTube
+            </button>
+            <button class="filter-btn" data-filter="communication" onclick="filterResources('communication')">
+                <span class="filter-icon">🎤</span> Communication
+            </button>
+            <button class="filter-btn" data-filter="physical" onclick="filterResources('physical')">
+                <span class="filter-icon">🏋️</span> Physical
+            </button>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-bar" id="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="search-input" placeholder="Search resources..."
+                oninput="searchResources(this.value)" />
+            <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- AML CAREER SECTION                         -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section-label" data-section="career">
+            <span class="section-dot" style="background:#f59e0b"></span>
+            AML Career Resources
+        </div>
+
+        <div class="resources-grid" data-section="career">
+
+            <!-- ACAMS -->
+            <div class="resource-card" data-category="career" data-tags="acams certification exam study">
+                <div class="card-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b">Certification</div>
+                <div class="card-icon">📜</div>
+                <div class="card-title">ACAMS CAMS Certification</div>
+                <div class="card-desc">The gold standard for anti-money laundering professionals. Study materials,
+                    practice exams,
+                    and preparation strategies.</div>
+                <div class="card-links">
+                    <a href="https://www.acams.org/en/certifications/certified-anti-money-laundering-specialist"
+                        target="_blank" class="card-link" rel="noopener">
+                        <span>🔗</span> Official ACAMS Page
+                    </a>
+                    <a href="https://www.acams.org/en/training" target="_blank" class="card-link" rel="noopener">
+                        <span>📚</span> ACAMS Training Portal
+                    </a>
+                </div>
+                <div class="card-tip">💡 Aim for 2 chapters/week during commute. Complete mock exams on weekends.</div>
+            </div>
+
+            <!-- AML Knowledge -->
+            <div class="resource-card" data-category="career" data-tags="aml knowledge fatf regulations compliance">
+                <div class="card-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b">Knowledge</div>
+                <div class="card-icon">📖</div>
+                <div class="card-title">AML Regulations & FATF</div>
+                <div class="card-desc">Stay current with FATF recommendations, country-specific regulations, and
+                    emerging AML
+                    trends. Essential for interview preparation.</div>
+                <div class="card-links">
+                    <a href="https://www.fatf-gafi.org/en/recommendations.html" target="_blank" class="card-link"
+                        rel="noopener">
+                        <span>🔗</span> FATF Recommendations
+                    </a>
+                    <a href="https://www.fincen.gov/" target="_blank" class="card-link" rel="noopener">
+                        <span>🏛️</span> FinCEN Resources
+                    </a>
+                </div>
+                <div class="card-tip">💡 Bookmark 3 key FATF publications. Reference them in interviews for instant
+                    credibility.</div>
+            </div>
+
+            <!-- Resume & LinkedIn -->
+            <div class="resource-card" data-category="career"
+                data-tags="resume linkedin job search networking applications">
+                <div class="card-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b">Job Search</div>
+                <div class="card-icon">💼</div>
+                <div class="card-title">Resume & LinkedIn Strategy</div>
+                <div class="card-desc">AML-specific resume keywords, LinkedIn profile optimisation, and networking
+                    strategies to
+                    land your target role.</div>
+                <div class="card-links">
+                    <a href="https://www.linkedin.com/jobs/search/?keywords=AML%20analyst" target="_blank"
+                        class="card-link" rel="noopener">
+                        <span>🔗</span> LinkedIn AML Job Search
+                    </a>
+                    <a href="https://www.indeed.com/q-aml-analyst-jobs.html" target="_blank" class="card-link"
+                        rel="noopener">
+                        <span>🔍</span> Indeed AML Jobs
+                    </a>
+                </div>
+                <div class="card-tip">💡 Apply to 3–5 roles/week. Customise each cover letter with company-specific AML
+                    challenges.
+                </div>
+            </div>
+
+            <!-- Interview Prep -->
+            <div class="resource-card" data-category="career"
+                data-tags="interview preparation behavioral technical questions">
+                <div class="card-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b">Interview</div>
+                <div class="card-icon">🎯</div>
+                <div class="card-title">Interview Preparation</div>
+                <div class="card-desc">Common AML interview questions, STAR method for behavioral responses, and
+                    technical
+                    scenario preparation for compliance roles.</div>
+                <div class="card-links">
+                    <a href="https://www.glassdoor.com/Interview/aml-analyst-interview-questions-SRCH_KO0,11.htm"
+                        target="_blank" class="card-link" rel="noopener">
+                        <span>🔗</span> Glassdoor AML Questions
+                    </a>
+                </div>
+                <div class="card-tip">💡 Practise the STAR method daily during evening commute. Record yourself
+                    answering.</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- YOUTUBE SECTION                            -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section-label" data-section="youtube">
+            <span class="section-dot" style="background:#ef4444"></span>
+            YouTube Resources
+        </div>
+
+        <div class="resources-grid" data-section="youtube">
+
+            <!-- Video Editing -->
+            <div class="resource-card" data-category="youtube"
+                data-tags="editing capcut davinci resolve video production">
+                <div class="card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444">Editing</div>
+                <div class="card-icon">🎬</div>
+                <div class="card-title">Video Editing Tools</div>
+                <div class="card-desc">Free editing tools to get started — CapCut for quick edits, DaVinci Resolve for
+                    professional-grade production.</div>
+                <div class="card-links">
+                    <a href="https://www.capcut.com/" target="_blank" class="card-link" rel="noopener">
+                        <span>✂️</span> CapCut (Free)
+                    </a>
+                    <a href="https://www.blackmagicdesign.com/products/davinciresolve/" target="_blank"
+                        class="card-link" rel="noopener">
+                        <span>🎞️</span> DaVinci Resolve (Free)
+                    </a>
+                </div>
+                <div class="card-tip">💡 Start with CapCut for speed. Graduate to DaVinci Resolve once you publish 10+
+                    videos.</div>
+            </div>
+
+            <!-- SEO & Thumbnails -->
+            <div class="resource-card" data-category="youtube" data-tags="seo thumbnails titles keywords optimization">
+                <div class="card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444">Growth</div>
+                <div class="card-icon">📈</div>
+                <div class="card-title">YouTube SEO & Thumbnails</div>
+                <div class="card-desc">Rank higher in search. Learn keyword research, title formulas, and thumbnail
+                    design
+                    strategies that drive clicks.</div>
+                <div class="card-links">
+                    <a href="https://www.tubebuddy.com/" target="_blank" class="card-link" rel="noopener">
+                        <span>🔗</span> TubeBuddy (SEO Tool)
+                    </a>
+                    <a href="https://www.canva.com/youtube-thumbnails/" target="_blank" class="card-link"
+                        rel="noopener">
+                        <span>🎨</span> Canva Thumbnails
+                    </a>
+                    <a href="https://vidiq.com/" target="_blank" class="card-link" rel="noopener">
+                        <span>📊</span> VidIQ Analytics
+                    </a>
+                </div>
+                <div class="card-tip">💡 Spend 30% of video creation time on the thumbnail. It matters more than
+                    production quality.
+                </div>
+            </div>
+
+            <!-- Content Strategy -->
+            <div class="resource-card" data-category="youtube" data-tags="content strategy niche scripting planning">
+                <div class="card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444">Strategy</div>
+                <div class="card-icon">📝</div>
+                <div class="card-title">Content Strategy & Scripting</div>
+                <div class="card-desc">Niche positioning for AML/Financial Fraud/Career Finance. Scripting frameworks
+                    and content
+                    calendar planning for consistent output.</div>
+                <div class="card-links">
+                    <a href="https://www.notion.so/" target="_blank" class="card-link" rel="noopener">
+                        <span>📋</span> Notion (Content Calendar)
+                    </a>
+                </div>
+                <div class="card-tip">💡 Batch-script 4 videos on the weekend. Then edit 1 per weeknight for consistent
+                    weekly uploads.
+                </div>
+            </div>
+
+            <!-- Monetisation -->
+            <div class="resource-card" data-category="youtube"
+                data-tags="monetisation subscribers growth audience engagement">
+                <div class="card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444">Milestone</div>
+                <div class="card-icon">🚀</div>
+                <div class="card-title">First 100 Subscribers</div>
+                <div class="card-desc">Strategies for gaining your first 100 subscribers — community engagement,
+                    cross-platform
+                    promotion, and commenting strategy.</div>
+                <div class="card-links">
+                    <a href="https://creatoracademy.youtube.com/" target="_blank" class="card-link" rel="noopener">
+                        <span>🎓</span> YouTube Creator Academy
+                    </a>
+                </div>
+                <div class="card-tip">💡 Comment meaningfully on 5 related channels each day. Don't self-promote — add
+                    value first.
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- COMMUNICATION SECTION                      -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section-label" data-section="communication">
+            <span class="section-dot" style="background:#8b5cf6"></span>
+            Communication & Appearance
+        </div>
+
+        <div class="resources-grid" data-section="communication">
+
+            <!-- Books -->
+            <div class="resource-card" data-category="communication"
+                data-tags="books reading leadership communication skills">
+                <div class="card-badge" style="background:rgba(139,92,246,0.15); color:#8b5cf6">Books</div>
+                <div class="card-icon">📚</div>
+                <div class="card-title">Must-Read Books</div>
+                <div class="card-desc">Curated reading list — 1 book/month on communication, leadership, and personal
+                    brand
+                    building.</div>
+                <div class="card-links-list">
+                    <div class="book-item">
+                        <span class="book-num">01</span>
+                        <div>
+                            <div class="book-title">"How to Win Friends & Influence People"</div>
+                            <div class="book-author">Dale Carnegie</div>
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <span class="book-num">02</span>
+                        <div>
+                            <div class="book-title">"Talk Like TED"</div>
+                            <div class="book-author">Carmine Gallo</div>
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <span class="book-num">03</span>
+                        <div>
+                            <div class="book-title">"Atomic Habits"</div>
+                            <div class="book-author">James Clear</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-tip">💡 Read 20 mins during your morning commute. Audiobooks count too.</div>
+            </div>
+
+            <!-- Public Speaking -->
+            <div class="resource-card" data-category="communication"
+                data-tags="public speaking toastmasters presentation practice">
+                <div class="card-badge" style="background:rgba(139,92,246,0.15); color:#8b5cf6">Speaking</div>
+                <div class="card-icon">🎤</div>
+                <div class="card-title">Public Speaking Practice</div>
+                <div class="card-desc">Record & review yourself speaking weekly. Join Toastmasters or an online practice
+                    group for
+                    structured feedback.</div>
+                <div class="card-links">
+                    <a href="https://www.toastmasters.org/" target="_blank" class="card-link" rel="noopener">
+                        <span>🔗</span> Toastmasters International
+                    </a>
+                    <a href="https://www.ted.com/talks" target="_blank" class="card-link" rel="noopener">
+                        <span>🎙️</span> TED Talks (Study Delivery)
+                    </a>
+                </div>
+                <div class="card-tip">💡 Record a 2-minute talk on any topic. Watch it back, note 1 thing to improve.
+                    Repeat weekly.
+                </div>
+            </div>
+
+            <!-- Wardrobe -->
+            <div class="resource-card" data-category="communication"
+                data-tags="wardrobe appearance grooming style office dress">
+                <div class="card-badge" style="background:rgba(139,92,246,0.15); color:#8b5cf6">Appearance</div>
+                <div class="card-icon">👔</div>
+                <div class="card-title">Office Wardrobe & Grooming</div>
+                <div class="card-desc">Dress intentionally. Build a capsule wardrobe for the office — professional,
+                    consistent, and
+                    memorable.</div>
+                <div class="card-links">
+                    <a href="https://www.realmenrealstyle.com/" target="_blank" class="card-link" rel="noopener">
+                        <span>🔗</span> Real Men Real Style
+                    </a>
+                </div>
+                <div class="card-tip">💡 Start with 5 versatile pieces: navy blazer, white shirt, charcoal trousers,
+                    quality belt, clean shoes.</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- PHYSICAL SECTION                           -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section-label" data-section="physical">
+            <span class="section-dot" style="background:#06b6d4"></span>
+            Physical Transformation
+        </div>
+
+        <div class="resources-grid" data-section="physical">
+
+            <!-- Workout -->
+            <div class="resource-card" data-category="physical"
+                data-tags="workout exercise gym fitness routine training">
+                <div class="card-badge" style="background:rgba(6,182,212,0.15); color:#06b6d4">Training</div>
+                <div class="card-icon">🏋️</div>
+                <div class="card-title">6x/Week Workout Plan</div>
+                <div class="card-desc">Fasted morning workouts for physical transformation. Push/Pull/Legs split or full
+                    body
+                    programs based on your level.</div>
+                <div class="card-links">
+                    <a href="https://www.muscleandstrength.com/workouts" target="_blank" class="card-link"
+                        rel="noopener">
+                        <span>💪</span> Workout Plans Library
+                    </a>
+                    <a href="https://www.youtube.com/c/JeffNippard" target="_blank" class="card-link" rel="noopener">
+                        <span>🎥</span> Jeff Nippard (Science-based)
+                    </a>
+                </div>
+                <div class="card-tip">💡 Consistency > intensity. 40 min fasted workouts, 6x/week will transform you in
+                    90 days.</div>
+            </div>
+
+            <!-- Nutrition -->
+            <div class="resource-card" data-category="physical" data-tags="nutrition diet meal prep protein calories">
+                <div class="card-badge" style="background:rgba(6,182,212,0.15); color:#06b6d4">Nutrition</div>
+                <div class="card-icon">🥗</div>
+                <div class="card-title">Nutrition & Meal Prep</div>
+                <div class="card-desc">Simple, high-protein meal prep strategies for busy professionals. Fuel your
+                    workouts without
+                    wasting time cooking.</div>
+                <div class="card-links">
+                    <a href="https://www.myfitnesspal.com/" target="_blank" class="card-link" rel="noopener">
+                        <span>📱</span> MyFitnessPal (Tracker)
+                    </a>
+                </div>
+                <div class="card-tip">💡 Prep 5 days of meals on Sunday evening. Same lunch, varied dinner. Simplicity
+                    wins.</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- TOOLBOX SECTION                            -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section-label" data-section="all">
+            <span class="section-dot" style="background:#22c55e"></span>
+            Productivity Toolbox
+        </div>
+
+        <div class="tools-grid" data-section="all">
+            <div class="tool-card" data-category="all" data-tags="productivity focus timer pomodoro">
+                <span class="tool-icon">⏱</span>
+                <div class="tool-name">Pomodoro Timer</div>
+                <div class="tool-desc">25 min focus blocks</div>
+            </div>
+            <div class="tool-card" data-category="all" data-tags="notes second brain knowledge management">
+                <span class="tool-icon">🧠</span>
+                <div class="tool-name">Notion / Obsidian</div>
+                <div class="tool-desc">Second brain & notes</div>
+            </div>
+            <div class="tool-card" data-category="all" data-tags="habit tracking consistency routine">
+                <span class="tool-icon">✅</span>
+                <div class="tool-name">Habit Tracker</div>
+                <div class="tool-desc">Don't break the chain</div>
+            </div>
+            <div class="tool-card" data-category="all" data-tags="calendar time blocking scheduling planning">
+                <span class="tool-icon">📅</span>
+                <div class="tool-name">Time Blocking</div>
+                <div class="tool-desc">Google Calendar method</div>
+            </div>
+            <div class="tool-card" data-category="all" data-tags="music focus concentration ambient lo-fi">
+                <span class="tool-icon">🎧</span>
+                <div class="tool-name">Focus Music</div>
+                <div class="tool-desc">Lo-fi beats for study</div>
+            </div>
+            <div class="tool-card" data-category="all" data-tags="flashcards spaced repetition learning anki">
+                <span class="tool-icon">🃏</span>
+                <div class="tool-name">Anki Flashcards</div>
+                <div class="tool-desc">Spaced repetition</div>
+            </div>
+        </div>
+
+        <!-- INSIGHT -->
+        <div class="insight">
+            <strong>📚 Resource Rule: </strong>
+            Don't hoard resources — <em>execute on a few</em>. Pick one tool per goal and go deep.
+            The best resource is the one you <em>actually use consistently</em>.
+        </div>
+
+    </div>
+
+    <!-- LINK MODAL -->
+    <div class="modal-overlay" id="link-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title" id="modal-title-text">➕ Add Link</span>
+                <button class="modal-close" onclick="closeLinkModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <label class="modal-label" for="link-label-input">Link Label</label>
+                <input class="modal-input" id="link-label-input" type="text"
+                    placeholder="e.g. Official Documentation" />
+                <label class="modal-label" for="link-url-input">URL</label>
+                <input class="modal-input" id="link-url-input" type="url" placeholder="https://example.com" />
+                <label class="modal-label" for="link-icon-input">Icon (emoji)</label>
+                <input class="modal-input" id="link-icon-input" type="text" placeholder="🔗" maxlength="4" />
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" onclick="closeLinkModal()">Cancel</button>
+                <button class="modal-submit" onclick="submitLink()">Save Link</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOK MODAL -->
+    <div class="modal-overlay" id="book-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title" id="book-modal-title-text">📚 Add Book</span>
+                <button class="modal-close" onclick="closeBookModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <label class="modal-label" for="book-title-input">Book Title</label>
+                <input class="modal-input" id="book-title-input" type="text"
+                    placeholder='e.g. "Thinking, Fast and Slow"' />
+                <label class="modal-label" for="book-author-input">Author</label>
+                <input class="modal-input" id="book-author-input" type="text" placeholder="e.g. Daniel Kahneman" />
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" onclick="closeBookModal()">Cancel</button>
+                <button class="modal-submit" onclick="submitBook()">Save Book</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="resources.js"></script>
+</body>
+
+</html>
