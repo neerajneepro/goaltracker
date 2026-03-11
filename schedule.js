@@ -148,6 +148,8 @@ function getTaskStates() {
 
 function saveTaskStates(states) {
     localStorage.setItem(LS_KEY_TASKS, JSON.stringify(states));
+    // Sync to Google Sheets in background
+    if (typeof syncSaveTaskStates === 'function') syncSaveTaskStates(states);
 }
 
 // ── Toggle Individual Task Complete (synced with Progress page) ──
@@ -195,18 +197,29 @@ function loadTaskStates() {
 
         lis.forEach((li, idx) => {
             const key = `${goalId}_${idx}`;
+            const checkbox = li.querySelector('input[type="checkbox"]');
+            const textSpan = li.querySelector('.task-text');
+            
             if (states[key]) {
-                const checkbox = li.querySelector('input[type="checkbox"]');
-                const textSpan = li.querySelector('.task-text');
-                if (checkbox) {
-                    checkbox.checked = true;
-                    if (textSpan) textSpan.classList.add('done');
-                    li.style.display = 'none';
-                }
+                if (checkbox) checkbox.checked = true;
+                if (textSpan) textSpan.classList.add('done');
+                li.style.display = 'none';
+            } else {
+                if (checkbox) checkbox.checked = false;
+                if (textSpan) textSpan.classList.remove('done');
+                li.style.display = '';
             }
         });
     });
 }
+
+// ── Cross-tab & Sheets Sync Listeners ──
+window.addEventListener('storage', (e) => {
+    if (e.key === LS_KEY_TASKS) loadTaskStates();
+});
+window.addEventListener('sheets-synced', () => {
+    loadTaskStates();
+});
 
 // ── Edit Individual Task ──
 function editTask(btn) {

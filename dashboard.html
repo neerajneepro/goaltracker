@@ -155,7 +155,7 @@
                 <span class="quick-label">Resources</span>
                 <span class="quick-sub">study materials</span>
             </a>
-            <div class="quick-card" onclick="alert('Settings coming soon!')">
+            <div class="quick-card" onclick="openSettings()">
                 <span class="quick-icon">⚙️</span>
                 <span class="quick-label">Settings</span>
                 <span class="quick-sub">customise plan</span>
@@ -172,6 +172,30 @@
 
     </div>
 
+    <!-- SETTINGS MODAL -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title">⚙️ Settings</span>
+                <button class="modal-close" onclick="closeSettings()">✕</button>
+            </div>
+            <div class="modal-body">
+                <label class="modal-label" for="setting-start-date">Starting Date</label>
+                <input class="modal-input" id="setting-start-date" type="date" />
+
+                <label class="modal-label" for="setting-duration">Goal Duration (days)</label>
+                <input class="modal-input" id="setting-duration" type="number" min="1" max="365" placeholder="90" />
+
+                <div class="settings-preview" id="settings-preview"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" onclick="closeSettings()">Cancel</button>
+                <button class="modal-submit" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="sheets-sync.js"></script>
     <script src="dashboard.js"></script>
 </body>
 

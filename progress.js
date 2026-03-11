@@ -71,6 +71,10 @@ function loadFromLS(key) {
 }
 function saveToLS(key, val) {
     localStorage.setItem(key, JSON.stringify(val));
+    // Sync to Google Sheets based on key type
+    if (key === LS_KEY_TASKS && typeof syncSaveTaskStates === 'function') {
+        syncSaveTaskStates(val);
+    }
 }
 
 // ── NAVBAR TOGGLE ──
@@ -79,7 +83,7 @@ function toggleNav() {
 }
 
 // ═══════════════════════════════════════
-//  INIT
+//  INIT & SYNC LISTENERS
 // ═══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
     updateAllProgress();
@@ -88,6 +92,22 @@ document.addEventListener('DOMContentLoaded', () => {
     updateMilestones();
     setLogDate();
 });
+
+function refreshDataFromSync() {
+    taskStates = loadFromLS(LS_KEY_TASKS) || {};
+    logEntries = loadFromLS(LS_KEY_LOGS) || [];
+    updateAllProgress();
+    renderChart();
+    renderLogEntries();
+}
+
+window.addEventListener('storage', (e) => {
+    if (e.key === LS_KEY_TASKS || e.key === LS_KEY_LOGS) {
+        refreshDataFromSync();
+    }
+});
+
+window.addEventListener('sheets-synced', refreshDataFromSync);
 
 // ── LOG DATE ──
 function setLogDate() {
@@ -507,14 +527,18 @@ function submitLog() {
         return;
     }
 
-    logEntries.push({
+    const newEntry = {
+        id: 'log_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
         goal,
         note,
         hours: hours || '0',
         date: new Date().toISOString()
-    });
+    };
+    logEntries.push(newEntry);
 
     saveToLS(LS_KEY_LOGS, logEntries);
+    // Sync new log entry to Sheets
+    if (typeof syncSaveLog === 'function') syncSaveLog(logEntries, newEntry);
     renderLogEntries();
     renderChart();
     closeLogModal();
@@ -528,8 +552,11 @@ function deleteLog(idx) {
     const entry = sorted[idx];
     const origIdx = logEntries.indexOf(entry);
     if (origIdx > -1) {
+        const deletedId = entry.id || null;
         logEntries.splice(origIdx, 1);
         saveToLS(LS_KEY_LOGS, logEntries);
+        // Sync deletion to Sheets
+        if (deletedId && typeof syncDeleteLog === 'function') syncDeleteLog(logEntries, deletedId);
         renderLogEntries();
         renderChart();
         if (activeGoalOverview) updateAllProgress();

@@ -46,6 +46,8 @@ function saveCardLinks(card) {
     });
 
     localStorage.setItem(key, JSON.stringify(links));
+    // Sync to Google Sheets
+    if (typeof syncSaveResourceLinks === 'function') syncSaveResourceLinks(key, links);
 }
 
 /** Create a .link-row element with edit/delete buttons */
@@ -351,6 +353,8 @@ function saveCardBooks(card) {
     });
 
     localStorage.setItem(key + '_books', JSON.stringify(books));
+    // Sync to Google Sheets
+    if (typeof syncSaveResourceBooks === 'function') syncSaveResourceBooks(key, books);
 }
 
 /** Create a .book-item element with edit/delete buttons */
